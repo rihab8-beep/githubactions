@@ -32,7 +32,10 @@ jobs:
       # Lance les tests
       - name: Lancer les tests
         run: pytest -q
-
+      - name: Vérifier le style avec flake8
+        run: |
+          pip install flake8
+          flake8 app.py --max-line-length=88
   # JOB 2 : Build Docker
   build:
     # Attend la réussite du job test
